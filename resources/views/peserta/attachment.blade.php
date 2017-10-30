@@ -52,6 +52,55 @@
               </div>
             </div>
         </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title"><b>Persyaratan Berkas</b></h4>
+                </div>
+                <div class="content">
+                  <h5>Study Group</h5>
+                  <ol>
+                    <li>CV Kreatif</li>
+                    <li>Motivation Letter</li>
+                    <li>Personal Plan (Untuk Lab) Selama 1 Tahun</li>
+                    <li>Portofolio (Opsional)</li>
+                  </ol>
+                  <h5>Research Group</h5>
+                  <ol>
+                    <li>CV Kreatif</li>
+                    <li>Motivation Letter</li>
+                    <li>Review Paper (Paper akan diberikan dari Lab)</li>
+                    <li>Personal Plan (Untuk Lab) Selama 1 Tahun</li>
+                    <li>Portofolio (Opsional)</li>
+                  </ol>
+                </div>
+            </div>
+          <!-- <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title"><b>Aturan Upload</b></h4>
+                </div>
+                <div class="content">
+                  <h5>Study Group</h5>
+                  <ol>
+                    <li>CV Kreatif</li>
+                    <li>Motivation Letter</li>
+                    <li>Personal Plan (Untuk Lab) Selama 1 Tahun</li>
+                    <li>Portofolio (Opsional)</li>
+                  </ol>
+                  <h5>Research Group</h5>
+                  <ol>
+                    <li>CV Kreatif</li>
+                    <li>Motivation Letter</li>
+                    <li>Review Paper (Paper akan diberikan dari Lab)</li>
+                    <li>Personal Plan (Untuk Lab) Selama 1 Tahun</li>
+                    <li>Portofolio (Opsional)</li>
+                  </ol>
+                </div>
+            </div> -->
+        </div>
     </div>
+  </div>
 </div>
 @endsection
