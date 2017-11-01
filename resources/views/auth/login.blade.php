@@ -71,10 +71,11 @@
                                     <label>Password</label>
                                     <input type="password" class="form-control" placeholder="Password" name="password" required>
 
-                                    <button type="submit" class="btn btn-danger btn-block">Register</button>
+                                    <button type="submit" class="btn btn-danger btn-block">Login</button>
                                 </form>
                                 <div class="forgot">
-                                    <a href="#" class="btn btn-simple btn-danger">Forgot password?</a>
+                                    <a href="{{ route('register') }}" class="btn btn-simple btn-danger">Register Here!</a>
+																		<button onclick="forgot_pass()" class="btn btn-simple btn-danger">Forgot password?</button>
                                 </div>
                             </div>
                         </div>
@@ -90,6 +91,12 @@
 
 <script src="{{ asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery-ui-1.10.4.custom.min.js') }}" type="text/javascript"></script>
+
+<script>
+	function forgot_pass(){
+		alert('Silakan datang ke IF3.02.07 (F207) untuk Reset Password');
+	}
+</script>
 
 <script src="{{ asset('bootstrap3/js/bootstrap.js') }}" type="text/javascript"></script>
 

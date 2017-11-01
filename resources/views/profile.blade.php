@@ -3,6 +3,12 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
+      @if(Session::has('message'))
+        <div class="alert {{ Session::get('alert-class') }}">
+            <a href="#" aria-hidden="true" data-dismiss="alert" class="close" aria-label="close">&times;</a>
+            <span>{{ Session::get('message') }}</span>
+        </div>
+      @endif
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="card">
@@ -28,7 +34,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control border-input" placeholder="Email" name="email" value="{{ $profile->email }}">
+                                        <input type="email" class="form-control border-input" placeholder="Email" name="email" value="{{ $profile->email }}" {{($profile->email == null || $profile->email == '') ? 'required':''}}>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +43,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" class="form-control border-input" placeholder="Full Name" name="name" value="{{ $profile->name }}">
+                                        <input type="text" class="form-control border-input" placeholder="Full Name" name="name" value="{{ $profile->name }}" {{($profile->username == null || $profile->name == '') ? 'required':''}}>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +52,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" class="form-control border-input" placeholder="Home Address" name="alamat" value="{{ $profile->alamat }}">
+                                        <input type="text" class="form-control border-input" placeholder="Home Address" name="alamat" value="{{ $profile->alamat }}" {{($profile->alamat == null || $profile->alamat == '') ? 'required':''}}>
                                     </div>
                                 </div>
                             </div>
@@ -55,19 +61,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Jurusan</label>
-                                        <input type="text" class="form-control border-input" placeholder="S1 Teknik Informatika" name="jurusan" value="{{ $profile->jurusan }}">
+                                        <input type="text" class="form-control border-input" placeholder="S1 Teknik Informatika" name="jurusan" value="{{ $profile->jurusan }}" {{($profile->jurusan == null || $profile->jurusan == '') ? 'required':''}}>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Fakultas</label>
-                                        <input type="text" class="form-control border-input" placeholder="Informatika" name="fakultas" value="{{ $profile->fakultas }}">
+                                        <input type="text" class="form-control border-input" placeholder="Informatika" name="fakultas" value="{{ $profile->fakultas }}" {{($profile->fakultas == null || $profile->fakultas == '') ? 'required':''}}>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Angakatan</label>
-                                        <input type="number" class="form-control border-input" placeholder="2015" name="angkatan" value="{{ $profile->angkatan }}" min="2015" max="2017">
+                                        <input type="number" class="form-control border-input" placeholder="2015" name="angkatan" value="{{ $profile->angkatan }}" min="2015" max="2017" {{($profile->angkatan == null || $profile->angkatan == '') ? 'required':''}}>
                                     </div>
                                 </div>
                             </div>

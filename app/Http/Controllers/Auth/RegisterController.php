@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profile';
 
     /**
      * Create a new controller instance.
@@ -75,7 +75,6 @@ class RegisterController extends Controller
         Seleksi::create([
             'id' => $user->id,
         ]);
-
 
         return $user;
     }

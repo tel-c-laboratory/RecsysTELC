@@ -13,18 +13,17 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-
     <!-- Bootstrap core CSS     -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
     <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet"/>
 
-    <!--  Paper Dashboard core CSS    -->
-    <link href="{{ asset('css/paper-dashboard.css') }}" rel="stylesheet"/>
+		<!-- DataTables Bootstrap core CSS     -->
+    <link href="{{ asset('css/dataTables.bootstrap.min.css') }}" rel="stylesheet" />
 
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="{{ asset('css/demo.css') }}" rel="stylesheet" />
+    <!--  Paper Dashboard core CSS    -->
+    <link href="{{ asset('css/paper-dashboard-default.css') }}" rel="stylesheet"/>
 
     <!--  Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -58,16 +57,43 @@
         </li>
         <li class="{{ Request::is('profile') ? "active" : ""}}">
             <a href="{{ route('profile') }}">
-                <i class="ti-user"></i>
+                <i class="fa fa-user" aria-hidden="true"></i>
                 <p>User Profile</p>
             </a>
         </li>
-				<li class="{{ Request::is('attachment') ? "active" : ""}}">
-            <a href="{{ route('seleksi.index') }}">
-                <i class="ti-file"></i>
-                <p>Attachment</p>
-            </a>
-        </li>
+				@if(Auth::user()->user_level != 'Peserta')
+					<li class="{{ Request::is('users') ? "active" : ""}}">
+							<a href="{{ route('admin.users') }}">
+									<i class="fa fa-users" aria-hidden="true"></i>
+									<p>Users Management</p>
+							</a>
+					</li>
+					<li class="{{ Request::is('recruitments') ? "active" : ""}}">
+							<a href="{{ route('admin.seleksi.index') }}">
+									<i class="ti-file"></i>
+									<p>Recruitments</p>
+							</a>
+					</li>
+					<li class="{{ Request::is('settings') ? "active" : ""}}">
+							<a href="{{ route('admin.setting') }}">
+									<i class="fa fa-cog" aria-hidden="true"></i>
+									<p>Settings</p>
+							</a>
+					</li>
+				@else
+					<li class="{{ Request::is('recruitment') ? "active" : ""}}">
+							<a href="{{ route('seleksi.index') }}">
+									<i class="ti-file"></i>
+									<p>Recruitment</p>
+							</a>
+					</li>
+					<li class="{{ Request::is('result') ? "active" : ""}}">
+							<a href="{{ route('seleksi.pengumuman') }}">
+									<i class="fa fa-ticket" aria-hidden="true"></i>
+									<p>Result</p>
+							</a>
+					</li>
+				@endif
       </ul>
   	</div>
   </div>
@@ -84,7 +110,7 @@
                     </button>
                     <a class="navbar-brand" href="#">Technology Enhanced Learning Center</a>
                 </div>
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse" data-active-color="danger">
                     <ul class="nav navbar-nav navbar-right">
 						            <li>
                           <a href="{{ route('logout') }}"
@@ -129,10 +155,19 @@
 
 
 </body>
-
   <!--   Core JS Files   -->
   <script src="{{ asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
+
+	<!--   Core DataTables Files   -->
+  <script src="{{ asset('js/dataTables.bootstrap.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
+	<script>
+		$(document).ready(function() {
+			$('#table').DataTable();
+			$(".icons span").remove();
+		});
+	</script>
 
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="{{ asset('js/bootstrap-checkbox-radio.js') }}"></script>
@@ -146,10 +181,7 @@
   <!--  Google Maps Plugin    -->
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
-  <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+	<!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 	<script src="{{ asset('js/paper-dashboard.js') }}"></script>
-
-	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-	<script src="{{ asset('js/demo.js') }}"></script>
 
 </html>

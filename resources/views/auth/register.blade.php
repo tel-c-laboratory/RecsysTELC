@@ -99,9 +99,6 @@
 
                                     <button type="submit" class="btn btn-danger btn-block">Register</button>
                                 </form>
-                                <div class="forgot">
-                                    <a href="#" class="btn btn-simple btn-danger">Forgot password?</a>
-                                </div>
                             </div>
                         </div>
                     </div>

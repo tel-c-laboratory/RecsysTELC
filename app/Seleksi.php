@@ -13,7 +13,7 @@ class Seleksi extends Model
    * @var array
    */
   protected $fillable = [
-      'id', 'peminatan', 'berkas', 'status'
+      'id', 'peminatan', 'berkas', 'status', 'lolos_berkas', 'lolos_wawancara'
   ];
 
   /**

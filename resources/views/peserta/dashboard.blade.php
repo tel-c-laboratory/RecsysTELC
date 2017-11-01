@@ -3,15 +3,21 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
+      @if(Session::has('message'))
+        <div class="alert {{ Session::get('alert-class') }}">
+            <a href="#" aria-hidden="true" data-dismiss="alert" class="close" aria-label="close">&times;</a>
+            <span>{{ Session::get('message') }}</span>
+        </div>
+      @endif
         <div class="row">
             <div class="col-lg-4 col-md-4">
                 <div class="card card-user">
                     <div class="image">
-                        <img src="{{ asset('storage/profile') }}/background.jpg"/>
+                        <img src="{{ asset('img') }}/honey.jpg"/>
                     </div>
                     <div class="content">
                         <div class="author">
-                          <img class="avatar border-white" src="{{ asset('storage/profile') }}/{{ $profile->photo }}" alt="..."/>
+                          <img class="avatar border-white" src="{{ asset('img') }}/{{ $profile->photo }}" alt="..."/>
                           <h4 class="title">{{ $profile->name }}<br />
                              <a href="#"><small>@ {{ $profile->username }}</small></a>
                           </h4>
@@ -41,33 +47,6 @@
                   </div>
               </div>
           </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-4">
-              <div class="card">
-                <div class="header">
-                    <h4 class="title"><b>Peminatan</b></h4>
-                </div>
-                <div class="content">
-                  <form action="{{ route('seleksi.store')}}" method="POST">
-                  {{ csrf_field() }}
-                  <div class="form-group">
-                    <select class="form-control" name="peminatan" required>
-                      <option value="">Choose...</option>
-                        @php ($peminatan = ['Study Group', 'Research Group'])
-                        @foreach($peminatan as $value)
-                            <option value="{{ $value }}" {{($profile->seleksi->peminatan == $value) ? 'selected':''}} >{{ $value }}</option>
-                        @endforeach
-                    </select>
-                  </div>
-                  <div class="text-center">
-                      <button type="submit" class="btn btn-info btn-fill btn-wd">Save</button>
-                  </div>
-                  <div class="clearfix"></div>
-                </form>
-                </div>
-            </div>
-            </div>
         </div>
     </div>
 </div>
