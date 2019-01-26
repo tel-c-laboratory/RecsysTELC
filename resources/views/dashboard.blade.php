@@ -3,6 +3,14 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
+      @if(Session::has('message'))
+        <div class="alert {{ Session::get('alert-class') }}">
+            <a href="#" aria-hidden="true" data-dismiss="alert" class="close" aria-label="close">&times;</a>
+            <span>{{ Session::get('message') }}</span>
+        </div>
+      @endif
+
+      @if(Auth::user()->user_level != 'Peserta')
       <div class="row">
         <div class="col-lg-4 col-sm-4">
             <div class="card">
@@ -62,6 +70,7 @@
             </div>
         </div>
     </div>
+      @endif
         <div class="row">
             <div class="col-lg-4 col-md-4">
                 <div class="card card-user">
@@ -70,7 +79,8 @@
                     </div>
                     <div class="content">
                         <div class="author">
-                          <img class="avatar border-white" src="{{ asset('storage/profile') }}/{{ $profile->photo }}" alt="..."/>
+                          <!--<img class="avatar border-white" src="{{ asset('storage/profile') }}/{{ $profile->photo }}"/>-->
+                          <img class="avatar border-white" src="{{ asset('img/user.jpg') }}"/>
                           <h4 class="title">{{ $profile->name }}<br />
                              <a href="#"><small>@ {{ $profile->username }}</small></a>
                           </h4>
@@ -94,9 +104,10 @@
                   <div class="content">
                     <h4>Recruitment Timeline</h4>
                     <h5><p class="category"><b>3 - 10 November 2017</b></p>Upload Berkas Online</h5>
-                    <h5><p class="category"><b>-</b></p>Penguman Seleksi Berkas</h5>
-                    <h5><p class="category"><b>13 - 14 November 2017</b></p>Wawancara</h5>
-                    <h5><p class="category"><b>27 November 2017</b></p>Penguman Seleksi Akhir</h5>
+                    <h5><p class="category"><b>13 November 2017</b></p>Penguman Seleksi Berkas</h5>
+                    <h5><p class="category"><b>13 - 14 November 2017</b></p>Isi Jadwal Wawancara</h5>
+                    <h5><p class="category"><b>15 - 19 November 2017</b></p>Seleksi Wawancara</h5>
+                    <h5><p class="category"><b>27 November 2017</b></p>Penguman Seleksi Wawancara</h5>
                   </div>
               </div>
           </div>

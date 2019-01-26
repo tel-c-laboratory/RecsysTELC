@@ -32,24 +32,21 @@ class UserController extends Controller
           $count = User::where('user_level', 'Peserta')->count();
           $csg = Seleksi::where('peminatan', 'Study Group')->count();
           $crg = Seleksi::where('peminatan', 'Reserach Group')->count();
-          // dd($crg);
-          return view('admin.dashboard', compact('profile', 'count', 'csg', 'crg'));
+          return view('dashboard', compact('profile', 'count', 'csg', 'crg'));
         } else {
-          return view('peserta.dashboard', compact('profile'));
+          return view('dashboard', compact('profile'));
         }
     }
 
     public function list()
     {
       $user = User::all();
-      // dd($user);
       return view('admin.user', compact('user'));
     }
 
     public function show()
     {
       $profile = User::find(Auth::user()->id);
-      // dd($profile);
       return view('profile', compact('profile'));
     }
 
@@ -105,7 +102,6 @@ class UserController extends Controller
 
     public function cek_verifikasi(Request $request){
       $seleksi = Seleksi::find($request->id);
-      // dd($seleksi);
       if ($seleksi != null) {
         if ($seleksi->status == 'Verified') {
           return false;
@@ -117,7 +113,6 @@ class UserController extends Controller
 
     public function setAdmin(Request $request){
       $user = User::find($request->id);
-      // dd($request);
       if ($this->cek_verifikasi($request)) {
         $level = 'Admin';
         $user->user_level = $level;

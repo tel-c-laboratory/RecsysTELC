@@ -19,7 +19,6 @@ class SeleksiController extends Controller
     {
       if (Auth::user()->user_level != 'Peserta') {
         $seleksi = User::where('user_level','peserta')->get();
-        // dd($seleksi);
         return view('admin.recruitment', compact('seleksi'));
       } else {
         $profile = User::find(Auth::user()->id);
@@ -34,7 +33,7 @@ class SeleksiController extends Controller
      */
     public function create()
     {
-
+      //  
     }
 
     /**
@@ -122,7 +121,6 @@ class SeleksiController extends Controller
     }
 
     public function verifikasi(Request $request){
-      // dd($request);
       $seleksi = Seleksi::find($request->id);
       $seleksi->update([
           'status' => 'Verified',
@@ -141,7 +139,6 @@ class SeleksiController extends Controller
     }
 
     public function setLolos(Request $request) {
-      // dd($request);
       if ($request->id != null) {
           foreach ($request->id as $id) {
             $seleksi = Seleksi::find($id);
@@ -184,7 +181,6 @@ class SeleksiController extends Controller
     }
 
     public function updateSettings(Request $request){
-      // dd($request);
       $request->validate([
         'upload_berkas' => 'required',
         'seleksi_berkas' => 'required',

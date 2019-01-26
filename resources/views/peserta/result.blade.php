@@ -57,14 +57,14 @@
                     @if ($profile->seleksi->lolos_berkas != 'Ya')
                       <i class="fa fa-times-circle" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
                       <p></p>
-                      <p>Maaf, Anda tidak lulus dalam Seleksi Berkas. Sampai bertemu di lain waktu</p>
+                      <p>Maaf, Anda tidak lulus dalam Seleksi Berkas. Sampai bertemu di lain waktu :)</p>
                       <p>Tetap Semangat dan Jangan Lupa berdoa sebelum makan ^^9</p>
                     @else
                       <i class="fa fa-check" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
                       <p></p>
                       <p>Selamat, Anda Lolos Tahap Berkas!</p>
                       <p>Tetap Semangat hingga Tahap Akhir ^^</p>
-                      <a href="#" class="btn btn-info btn-fill btn-wd" target="_blank">Isi Jadwal Wawancara</a>
+                      <a href="http://bit.ly/TELC-Phase1" class="btn btn-info btn-fill btn-wd" target="_blank">Isi Jadwal Wawancara</a>
                     @endif
                   @endif
                   <div class="clearfix"></div>
@@ -91,7 +91,7 @@
                     <i class="fa fa-check" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
                     <p></p>
                     <p>Selamat, Anda Lolos sebagai anggota TEL-C 4th Generation!</p>
-                    <button class="btn btn-info btn-fill btn-wd">Informasi First Meet</button>
+                    <a class="btn btn-info btn-fill btn-wd" href="#info">Informasi First Meet</a>
                   @endif
                 @endif
                 <div class="clearfix"></div>
@@ -99,6 +99,31 @@
           </div>
       </div>
     </div>
+    @if ($profile->seleksi->lolos_wawancara == 'Ya')
+        <div class="row" id="info">
+          <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title"><b>Informasi First Meet</b></h4>
+                </div>
+                <div class="content">
+                  <div class="text-center">
+                 <i class="fa fa-group" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
+                 <p></p>
+                    <p>Pelaksanaan First Meet 4th Gen TEL-C Research Laboratory akan dilaksanakan pada : </p>
+                    <p><i class="fa fa-calendar" aria-hidden="true"></i> : Jumat, 1 Desember 2017 <br></p>
+                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> : 08.00 - Selesai <br></p>
+                    <p><i class="fa fa-home" aria-hidden="true"></i> : IF3.02.07 / F207 <br></p>
+                    <br><br>
+                    <p class="text-danger"><b>Note : Diwajibkan hadir untuk seluruh anggota TEL-C Research Laboratory </b></p>
+                    <p>Contact Person : fakhrifauzan / alifaazzamii (line)</p>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+    @endif
 </div>
 </div>
 @endsection
