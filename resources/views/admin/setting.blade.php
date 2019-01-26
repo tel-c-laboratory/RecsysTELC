@@ -24,6 +24,20 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label><b>Status Pendaftaran Peserta</b></label>
+                                    <select class="form-control" name="status_pendaftaran" required>
+                                      <option value="">Choose...</option>
+                                        @php ($status = ['Aktif', 'Tidak Aktif'])
+                                        @foreach($status as $value)
+                                            <option value="{{ $value }}" {{($stp == $value) ? 'selected':''}}>{{ $value }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
                                     <label><b>Upload Berkas</b></label>
                                     <select class="form-control" name="upload_berkas" required>
                                       <option value="">Choose...</option>

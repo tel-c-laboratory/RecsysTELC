@@ -29,6 +29,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="{{ asset('css/themify-icons.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{{{ asset('img/faviconlab.png') }}}" sizes="32x32" />
 
 </head>
 <body>
@@ -74,12 +75,14 @@
 									<p>Recruitments</p>
 							</a>
 					</li>
+                    @if(Auth::user()->user_level == 'Super Admin')
 					<li class="{{ Request::is('settings') ? "active" : ""}}">
 							<a href="{{ route('admin.setting') }}">
 									<i class="fa fa-cog" aria-hidden="true"></i>
 									<p>Settings</p>
 							</a>
 					</li>
+                    @endif
 				@else
 					<li class="{{ Request::is('recruitment') ? "active" : ""}}">
 							<a href="{{ route('seleksi.index') }}">

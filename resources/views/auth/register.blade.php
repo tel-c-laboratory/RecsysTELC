@@ -19,6 +19,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="{{{ asset('img/faviconlab.png') }}}" sizes="32x32" />
 
 </head>
 <body>
@@ -37,18 +38,18 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation-example-2">
-          <ul class="nav navbar-nav navbar-right">
-            <!-- <li>
-                <a href="#" class="btn btn-simple">Components</a>
+        <ul class="nav navbar-nav navbar-right">
+			<li>
+                <a href="https://www.instagram.com/telclab/" target="_blank" class="btn btn-simple"><i class="fa fa-instagram"></i></a>
+            </li>
+			<li>
+                <a href="https://www.youtube.com/channel/UCG3bAlStTXDebo3YutwiyFQ" target="_blank" class="btn btn-simple"><i class="fa fa-youtube"></i></a>
+            </li>
+			<li>
+                <a href="https://twitter.com/telclab" target="_blank" class="btn btn-simple"><i class="fa fa-twitter"></i></a>
             </li>
             <li>
-                <a href="#" class="btn btn-simple">Tutorial</a>
-            </li> -->
-            <li>
-                <a href="#" target="_blank" class="btn btn-simple"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li>
-                <a href="#" target="_blank" class="btn btn-simple"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.facebook.com/telctelu" target="_blank" class="btn btn-simple"><i class="fa fa-facebook"></i></a>
             </li>
            </ul>
         </div><!-- /.navbar-collapse -->

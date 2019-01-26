@@ -57,7 +57,7 @@
                     @if ($profile->seleksi->lolos_berkas != 'Ya')
                       <i class="fa fa-times-circle" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
                       <p></p>
-                      <p>Maaf, Anda tidak lulus dalam Seleksi Berkas. Sampai bertemu di lain waktu :)</p>
+                      <p>Maaf, Anda tidak lulus dalam Seleksi Berkas. Sampai bertemu di kesempatan lain ya :)</p>
                       <p>Tetap Semangat dan Jangan Lupa berdoa sebelum makan ^^9</p>
                     @else
                       <i class="fa fa-check" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
@@ -85,7 +85,7 @@
                   @if ($profile->seleksi->lolos_wawancara != 'Ya')
                     <i class="fa fa-times-circle" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
                     <p></p>
-                    <p>Maaf, Anda tidak lulus dalam Seleksi Wawancara. Sampai bertemu di lain waktu :)</p>
+                    <p>Maaf, Anda tidak lulus dalam Seleksi Wawancara. Sampai bertemu di kesempatan lain ya :)</p>
                     <p>Tetap Semangat dan Jangan Lupa berdoa sebelum makan ^^9</p>
                   @else
                     <i class="fa fa-check" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>

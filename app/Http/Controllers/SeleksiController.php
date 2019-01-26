@@ -26,6 +26,16 @@ class SeleksiController extends Controller
       }
     }
 
+    public function guest(){
+      if(Auth::guest()){
+        $stp = $this->getStatusPendaftaran();
+        // dd($stp);
+        return view('auth.login', compact('stp'));
+      } else {
+        return redirect()->route('home');
+      }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -157,12 +167,18 @@ class SeleksiController extends Controller
 
     public function setting(){
       if (Auth::user()->user_level == 'Super Admin') {
+        $stp = $this->getStatusPendaftaran();
         $gub = $this->getUploadBerkas();
         $gtb = $this->getTahapBerkas();
         $gtw = $this->getTahapWawancara();
-        return view('admin.setting', compact('gub', 'gtb', 'gtw'));
+        return view('admin.setting', compact('stp', 'gub', 'gtb', 'gtw'));
       }
-      return redirect()->route('admin.home');
+      return redirect()->route('admin.setting');
+    }
+
+    public function getStatusPendaftaran(){
+      $config = DB::table('settings')->where('config', 'status_pendaftaran')->first();
+      return $config->value;
     }
 
     public function getUploadBerkas(){
@@ -178,17 +194,20 @@ class SeleksiController extends Controller
     public function getTahapWawancara(){
       $config = DB::table('settings')->where('config', 'seleksi_wawancara')->first();
       return $config->value;
-    }
+    }    
 
     public function updateSettings(Request $request){
       $request->validate([
+        'status_pendaftaran' => 'required',
         'upload_berkas' => 'required',
         'seleksi_berkas' => 'required',
         'seleksi_wawancara' => 'required',
       ]);
 
+      DB::table('settings')->where('config', 'status_pendaftaran')
+            ->update(['value' => $request->status_pendaftaran]);
       DB::table('settings')->where('config', 'upload_berkas')
-            ->update(['value' => $request->upload_berkas]);
+            ->update(['value' => $request->upload_berkas]);      
       DB::table('settings')->where('config', 'seleksi_berkas')
             ->update(['value' => $request->seleksi_berkas]);
       DB::table('settings')->where('config', 'seleksi_wawancara')

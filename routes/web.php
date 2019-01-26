@@ -11,13 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-  if(Auth::guest()){
-      return view('auth.login');
-  } else {
-      return redirect()->route('home');
-  }
-});
+// Route::get('/', function () {
+//   if(Auth::guest()){
+//       return view('auth.login');
+//   } else {
+//       return redirect()->route('home');
+//   }
+// });
+
+Route::get('/', 'SeleksiController@guest');
+
 Auth::routes();
 
 Route::get('/home', 'UserController@index')->name('home');
