@@ -44,7 +44,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label><b>Upload Berkas</b></label>
+                                    <label><b>Status Unggah Berkas</b></label>
                                     <select class="form-control" name="upload_berkas" required>
                                       <option value="">Choose...</option>
                                         @php ($status = ['Aktif', 'Tidak Aktif'])
@@ -64,7 +64,7 @@
                         <div class="row">
                           <div class="col-md-6">
                               <div class="form-group">
-                                  <label><b>Seleksi Tahap Berkas</b></label>
+                                  <label><b>Hasil Seleksi Tahap 1</b></label>
                                   <select class="form-control" name="seleksi_berkas" required>
                                     <option value="">Choose...</option>
                                       @php ($status = ['Aktif', 'Tidak Aktif'])
@@ -84,7 +84,7 @@
                         <div class="row">
                           <div class="col-md-6">
                               <div class="form-group">
-                                  <label><b>Seleksi Tahap Wawancara</b></label>
+                                  <label><b>Hasil Seleksi Tahap 2</b></label>
                                   <select class="form-control" name="seleksi_wawancara" required>
                                     <option value="">Choose...</option>
                                       @php ($status = ['Aktif', 'Tidak Aktif'])
