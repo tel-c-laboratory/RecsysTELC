@@ -65,13 +65,17 @@
                             <div class="register-card">
                                 <h3 class="title">Login</h3>
                                 <form class="register-form" method="POST" action="{{ route('login') }}">
-																	{{ csrf_field() }}
-																		<label>Username</label>
-																		<input type="text" class="form-control" name="username" placeholder="Username" value="{{ old('username') }}" required>
-
+                                    {{ csrf_field() }}
+                                    @if ($errors->has('username') || $errors->has('password'))
+                                        <div class="alert alert-warning text-center">
+                                            <a href="#" aria-hidden="true" data-dismiss="alert" class="close" aria-label="close">&times;</a>
+                                            <span><strong>Username / Password Salah!</strong></span>
+                                        </div>
+                                    @endif
+                                    <label>Username</label>
+                                    <input type="text" class="form-control" name="username" placeholder="Username" value="{{ old('username') }}" required>
                                     <label>Password</label>
                                     <input type="password" class="form-control" placeholder="Password" name="password" required>
-
                                     <button type="submit" class="btn btn-danger btn-block" style="color:white; font-weight:bold;">Login</button>
                                 </form>
                                 <div class="forgot">
