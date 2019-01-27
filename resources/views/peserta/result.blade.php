@@ -13,7 +13,7 @@
           <div class="col-lg-4 col-md-4">
             <div class="card">
                 <div class="header">
-                    <h4 class="title"><b>Status Seleksi Berkas</b></h4>
+                    <h4 class="title"><b>Status Unggah Berkas</b></h4>
                 </div>
                 <div class="content">
                   <div class="text-center">

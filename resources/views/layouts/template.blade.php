@@ -63,18 +63,19 @@
             </a>
         </li>
 				@if(Auth::user()->user_level != 'Peserta')
-					<li class="{{ Request::is('users') ? "active" : ""}}">
-							<a href="{{ route('admin.users') }}">
-									<i class="fa fa-users" aria-hidden="true"></i>
-									<p>Users Management</p>
-							</a>
-					</li>
-					<li class="{{ Request::is('recruitments') ? "active" : ""}}">
+                    <li class="{{ Request::is('recruitments') ? "active" : ""}}">
 							<a href="{{ route('admin.seleksi.index') }}">
 									<i class="ti-file"></i>
 									<p>Recruitments</p>
 							</a>
 					</li>
+                    <li class="{{ Request::is('users') ? "active" : ""}}">
+							<a href="{{ route('admin.users') }}">
+									<i class="fa fa-users" aria-hidden="true"></i>
+									<p>Users Management</p>
+							</a>
+					</li>
+					
                     @if(Auth::user()->user_level == 'Super Admin')
 					<li class="{{ Request::is('settings') ? "active" : ""}}">
 							<a href="{{ route('admin.setting') }}">
