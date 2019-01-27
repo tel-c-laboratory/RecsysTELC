@@ -32,7 +32,7 @@ class UserController extends Controller
         if (Auth::user()->user_level != 'Peserta') {
           $count = User::where('user_level', 'Peserta')->count();
           $csg = Seleksi::where('peminatan', 'Study Group')->count();
-          $crg = Seleksi::where('peminatan', 'Reserach Group')->count();
+          $crg = Seleksi::where('peminatan', 'Research Group')->count();
           return view('dashboard', compact('profile', 'count', 'csg', 'crg', 'rtl'));
         } else {
           return view('dashboard', compact('profile', 'rtl'));
