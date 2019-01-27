@@ -15,7 +15,7 @@
                     <div class="header">
                         <h4 class="title">Recruitments</h4>
                     </div>
-                    <div class="content table-responsive table-full-width">
+                    <div class="content">
                         <form method="POST" action="{{ route('admin.seleksi.set') }}">
                         {{ csrf_field() }}
                         <table id="table" class="table table-striped">
@@ -33,7 +33,7 @@
                             <tbody>
                               @foreach($seleksi as $view)
                                   <tr>
-                                      <td><input type="checkbox" name="id[]" value="{{ $view->id }}" class="form-control"></td>
+                                      <td><input type="checkbox" name="id[]" value="{{ $view->id }}" class="form-control" style="width:25px; height:25px;"></td>
                                       <td>{{ $view->nim }}</td>
                                       <td>{{ $view->name }}</td>
                                       <td>{{ $view->angkatan }}</td>

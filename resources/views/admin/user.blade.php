@@ -15,7 +15,7 @@
                     <div class="header">
                         <h4 class="title">Users</h4>
                     </div>
-                    <div class="content table-responsive table-full-width">
+                    <div class="content">
                         <table id="table" class="table table-striped">
                             <thead>
                               <th>NIM</th>
@@ -115,85 +115,37 @@
       </form>
   </div>
 </div>
+@endsection
 
-<!-- Change User Level Modal -->
-<div class="modal fade" data-backdrop="" id="changeUserLevelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-   <!-- data-backdrop=""  -->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="tambahModalLabel"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="changeUserLevelForm">
-          {{ csrf_field() }}
-          <input id="id" type="number" class="form-cotrol" name="id" hidden required>
-          <div class="form-row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>New Password</label>
-                    <input type="password" class="form-control border-input" name="password">
-                </div>
-            </div>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-      </div>
-    </div>
-      </form>
-  </div>
-</div>
+@section('content-js')
+  <script type="text/javascript">
+    $('#changePassModal').on('hide.bs.modal', function (event) {
+        $('#changePassForm').removeAttr("action");
+        $('#changePassForm').removeAttr("method");
+        $("input[name='_method']").remove();
+    });
 
-<script type="text/javascript">
-  $('#changePassModal').on('hide.bs.modal', function (event) {
-      $('#changePassForm').removeAttr("action");
-      $('#changePassForm').removeAttr("method");
-      $("input[name='_method']").remove();
-  });
+    $('#changeUserLevelModal').on('hide.bs.modal', function (event) {
+        $('#changePassForm').removeAttr("action");
+        $('#changePassForm').removeAttr("method");
+        $("input[name='_method']").remove();
+    });
 
-  $('#changeUserLevelModal').on('hide.bs.modal', function (event) {
-      $('#changePassForm').removeAttr("action");
-      $('#changePassForm').removeAttr("method");
-      $("input[name='_method']").remove();
-  });
+    function change_pass(id) {
+        $('#changePassForm')[0].reset(); // reset form on modals
+        // $('.form-group').removeClass('has-error'); // clear error class
+        $('.help-block').hide(); // hide  error string
+        $('.modal-title').text('Change Password'); // Set Title to Bootstrap modal title
+        $("#changePassForm").attr('action', '{{ url('users/change/password') }}/');
+        $('#changePassForm').attr('method','post');
+        $('#changePassForm').prepend('{{ method_field('PUT') }}');
 
-  function change_pass(id) {
-      $('#changePassForm')[0].reset(); // reset form on modals
-      // $('.form-group').removeClass('has-error'); // clear error class
-      $('.help-block').hide(); // hide  error string
-      $('.modal-title').text('Change Password'); // Set Title to Bootstrap modal title
-      $("#changePassForm").attr('action', '{{ url('users/change/password') }}/');
-      $('#changePassForm').attr('method','post');
-      $('#changePassForm').prepend('{{ method_field('PUT') }}');
-
-      $.get("users/"+id+"/edit", function (response){
-          var value = JSON.parse(response);
-          $("#id").val(value["id"]);
-          $('#changePassModal').modal('show'); // show bootstrap modal
-      });
-      // $('.modal-backdrop').remove();
-  }
-
-  function change_user_level(id) {
-      $('#changePassForm')[0].reset(); // reset form on modals
-      // $('.form-group').removeClass('has-error'); // clear error class
-      $('.help-block').hide(); // hide  error string
-      $('.modal-title').text('Change Password'); // Set Title to Bootstrap modal title
-      $("#changePassForm").attr('action', '{{ url('users/change/userlevel') }}/');
-      $('#changePassForm').attr('method','post');
-      $('#changePassForm').prepend('{{ method_field('PUT') }}');
-
-      $.get("users/"+id+"/edit", function (response){
-          var value = JSON.parse(response);
-          $("#id").val(value["id"]);
-          $('#changePassModal').modal('show'); // show bootstrap modal
-      });
-      // $('.modal-backdrop').remove();
-  }
-</script>
+        $.get("users/"+id+"/edit", function (response){
+            var value = JSON.parse(response);
+            $("#id").val(value["id"]);
+            $('#changePassModal').modal('show'); // show bootstrap modal
+        });
+        // $('.modal-backdrop').remove();
+    }
+  </script>
 @endsection
