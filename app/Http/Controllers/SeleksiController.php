@@ -34,12 +34,12 @@ class SeleksiController extends Controller
           $request->session()->flash('alert-class', 'alert-warning');
           $request->session()->flash('message', 'Update Failed! Plase Update your Profile!');
         } else {
-          if (Auth::user()->angkatan == 2016 && $request->peminatan != 'Research Group') {
+          if (Auth::user()->angkatan <= 2016 && $request->peminatan != 'Research Group') {
             $request->session()->flash('alert-class', 'alert-warning');
-            $request->session()->flash('message', 'Update Failed! Angakatan 2016 must be choose Research Group.');
-          } else if(Auth::user()->angkatan == 2018 && $request->peminatan != 'Study Group') {
+            $request->session()->flash('message', 'Update Failed! Angakatan 2015/2016 must be choose Research Group.');
+          } else if(Auth::user()->angkatan >= 2018 && $request->peminatan != 'Study Group') {
             $request->session()->flash('alert-class', 'alert-warning');
-            $request->session()->flash('message', 'Update Failed! Angakatan 2018 must be choose Study Group.');
+            $request->session()->flash('message', 'Update Failed! Angakatan 2018/2019 must be choose Study Group.');
           } else {
             $seleksi = Seleksi::updateOrCreate(
               [
