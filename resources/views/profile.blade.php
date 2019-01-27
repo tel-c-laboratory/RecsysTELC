@@ -73,7 +73,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Angakatan</label>
-                                        <input type="number" class="form-control border-input" placeholder="2015" name="angkatan" value="{{ $profile->angkatan }}" min="2015" max="2017" {{($profile->angkatan == null || $profile->angkatan == '') ? 'required':''}}>
+                                        <input type="number" class="form-control border-input" placeholder="2015" name="angkatan" value="{{ $profile->angkatan }}" min="2015" max="2018" {{($profile->angkatan == null || $profile->angkatan == '') ? 'required':''}}>
                                     </div>
                                 </div>
                             </div>
