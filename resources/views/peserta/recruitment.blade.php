@@ -101,6 +101,14 @@
                   </ol>
                 </div>
             </div>
+            <div class="card">
+                <div class="header">
+                    <h4 class="title"><b>Additional Information (SG Only)</b></h4>
+                </div>
+                <div class="content text-info text-center">
+                  <h2>Online Test will be held after your attachment is verified.</h2>
+                </div>
+            </div>
           </div>
     </div>
 </div>
