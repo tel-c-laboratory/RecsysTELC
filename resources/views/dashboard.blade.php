@@ -79,8 +79,7 @@
                     </div>
                     <div class="content">
                         <div class="author">
-                          <!--<img class="avatar border-white" src="{{ asset('storage/profile') }}/{{ $profile->photo }}"/>-->
-                          <img class="avatar border-white" src="{{ asset('img/user.jpg') }}"/>
+                          <img class="avatar border-white" src="{{ asset('storage/profile') }}/{{ $profile->photo }}"/>
                           <h4 class="title">{{ $profile->name }}<br />
                              <a href="#"><small>@ {{ $profile->username }}</small></a>
                           </h4>
