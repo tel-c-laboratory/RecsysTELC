@@ -25,7 +25,7 @@ Route::group(['middleware' => ['admin']], function () {
   Route::put('/users/change/password', 'UserController@changePassword');
   Route::get('/recruitments', 'SeleksiController@index')->name('admin.seleksi.index');
   Route::post('/recruitments/verification', 'SeleksiController@verifikasi')->name('admin.seleksi.verifikasi');
-  Route::post('/recruitments/setLolos', 'SeleksiController@setLolos')->name('admin.seleksi.set');
+  Route::post('/recruitments/setLulus', 'SeleksiController@setLulus')->name('admin.seleksi.set');
   Route::post('/users/change/level/super', 'UserController@setSuperAdmin')->name('admin.set.super');
   Route::post('/users/change/level/admin', 'UserController@setAdmin')->name('admin.set.admin');
   Route::delete('/users/delete', 'UserController@delete')->name('admin.users.delete');

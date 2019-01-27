@@ -124,20 +124,20 @@ class SeleksiController extends Controller
       return view('peserta.result', compact('gub', 'gtb', 'gtw', 'ujw', 'uto', 'profile', 'fmt', 'fmj', 'fmc'));
     }
 
-    public function setLolos(Request $request) {
+    public function setLulus(Request $request) {
       if ($request->id != null) {
           foreach ($request->id as $id) {
             $seleksi = Seleksi::find($id);
-            if ($request->status == 'Lolos Seleksi Berkas') {
-              $seleksi->lolos_berkas = 'Ya';
+            if ($request->status == 'Lulus Seleksi Tahap 1') {
+              $seleksi->lulus_berkas = 'Ya';
             } else {
-              $seleksi->lolos_wawancara = 'Ya';
+              $seleksi->lulus_wawancara = 'Ya';
             }
             $seleksi->save();
           }
       }
       $request->session()->flash('alert-class', 'alert-success');
-      $request->session()->flash('message', 'Status Lolos has been Updated!');
+      $request->session()->flash('message', 'Status Lulus has been Updated!');
       return redirect()->route('admin.seleksi.index');
     }
 
