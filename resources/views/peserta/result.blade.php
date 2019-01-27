@@ -36,7 +36,9 @@
                       <p>Attachment has been Verified</p>
                       <a href="{{ asset('storage/upload') }}/{{ $profile->seleksi->berkas }}" class="btn btn-info btn-fill btn-wd">Download</a>
                       <p></p>
-                      <a href="{{ $uto }}" class="btn btn-success btn-fill btn-wd" target="_blank">Panduan Tes Online</a>
+                      @if($profile->seleksi->peminatan == 'Study Group')
+                        <a href="{{ $uto }}" class="btn btn-success btn-fill btn-wd" target="_blank">Panduan Tes Online</a>
+                      @endif
                     @endif
                   @endif
                   </div>
