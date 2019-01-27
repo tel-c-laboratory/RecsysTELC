@@ -11,15 +11,7 @@
 |
 */
 
-// Route::get('/', function () {
-//   if(Auth::guest()){
-//       return view('auth.login');
-//   } else {
-//       return redirect()->route('home');
-//   }
-// });
-
-Route::get('/', 'SeleksiController@guest');
+Route::get('/', 'Auth\LoginController@showLoginForm');
 
 Auth::routes();
 

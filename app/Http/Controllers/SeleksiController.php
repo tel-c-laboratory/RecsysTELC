@@ -26,16 +26,6 @@ class SeleksiController extends Controller
       }
     }
 
-    public function guest(){
-      if(Auth::guest()){
-        $stp = $this->getStatusPendaftaran();
-        // dd($stp);
-        return view('auth.login', compact('stp'));
-      } else {
-        return redirect()->route('home');
-      }
-    }
-
     /**
      * Show the form for creating a new resource.
      *

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -35,6 +37,21 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function showLoginForm()
+    {
+        if(Auth::guest()){
+            $stp = $this->getStatusPendaftaran();
+            return view('auth.login', compact('stp'));
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
+    public function getStatusPendaftaran(){
+        $config = DB::table('settings')->where('config', 'status_pendaftaran')->first();
+        return $config->value;
     }
 
     public function username()
