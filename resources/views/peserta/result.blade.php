@@ -55,17 +55,17 @@
                   @if($gtb != 'Aktif')
                     <i class="fa fa-clock-o text-warning" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
                     <p></p>
-                    <p>Hasil Seleksi Berkas Belum Diumumkan!</p>
+                    <p>Hasil Seleksi Tahap 1 Belum Diumumkan!</p>
                   @else
                     @if ($profile->seleksi->lulus_berkas != 'Ya')
                       <i class="fa fa-times-circle" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
                       <p></p>
-                      <p>Maaf, Anda tidak lulus dalam Seleksi Berkas. Sampai bertemu di lain waktu</p>
-                      <p>Tetap Semangat dan Jangan Lupa berdoa sebelum makan, cuci kaki sebelum bobo ^^9</p>
+                      <p>Maaf, Anda tidak lulus dalam Seleksi Tahap 1. Sampai bertemu di lain waktu :)</p>
+                      <p>Tetap Semangat dan Jangan Lupa berdoa sebelum makan ^^9</p>
                     @else
                       <i class="fa fa-check text-success" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
                       <p></p>
-                      <p>Selamat, Anda lulus Tahap Berkas!</p>
+                      <p>Selamat, Anda lulus Tahap Tahap 1!</p>
                       <p>Tetap Semangat hingga Tahap Akhir ^^</p>
                       <a href="{{ $ujw }}" class="btn btn-info btn-fill btn-wd" target="_blank">Isi Jadwal Wawancara</a>
                     @endif
@@ -79,16 +79,16 @@
               <div class="header">
                   <h4 class="title"><b>Hasil Seleksi Tahap 2</b></h4>
               </div>
-              <div class="content text-center {{($profile->seleksi->lulus_wawancara != 'Ya' && $gtw == 'Aktif') ? 'text-danger':''}}">
+              <div class="content text-center {{(($profile->seleksi->lulus_wawancara != 'Ya' || $profile->seleksi->lulus_berkas != 'Ya') && $gtw == 'Aktif') ? 'text-danger':''}}">
                 @if($gtw != 'Aktif')
                   <i class="fa fa-clock-o text-warning" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
                   <p></p>
-                  <p>Hasil Seleksi Wawancara Belum Diumumkan!</p>
+                  <p>Hasil Seleksi Tahap 2 Belum Diumumkan!</p>
                 @else
-                  @if ($profile->seleksi->lulus_wawancara != 'Ya')
+                  @if ($profile->seleksi->lulus_wawancara != 'Ya' || $profile->seleksi->lulus_berkas != 'Ya')
                     <i class="fa fa-times-circle" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
                     <p></p>
-                    <p>Maaf, Anda tidak lulus dalam Seleksi Wawancara. Sampai bertemu di lain waktu :)</p>
+                    <p>Maaf, Anda tidak lulus dalam Seleksi Tahap 2. Sampai bertemu di lain waktu :)</p>
                     <p>Tetap Semangat dan Jangan Lupa berdoa sebelum makan ^^9</p>
                   @else
                     <i class="fa fa-check text-success" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
@@ -102,7 +102,7 @@
           </div>
       </div>
     </div>
-    @if ($profile->seleksi->lulus_wawancara == 'Ya')
+    @if ($profile->seleksi->lulus_berkas == 'Ya' && $profile->seleksi->lulus_wawancara == 'Ya' && $gtw == 'Aktif')
         <div class="row" id="info">
           <div class="col-lg-12 col-md-12">
             <div class="card">
