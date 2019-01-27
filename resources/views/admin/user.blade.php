@@ -130,9 +130,8 @@
         // $('.form-group').removeClass('has-error'); // clear error class
         $('.help-block').hide(); // hide  error string
         $('.modal-title').text('Change Password'); // Set Title to Bootstrap modal title
-        $("#changePassForm").attr('action', '{{ url('users/change/password') }}/');
+        $("#changePassForm").attr('action', '{{ url('users/change/password') }}');
         $('#changePassForm').attr('method','post');
-        $('#changePassForm').prepend('{{ method_field('PUT') }}');
 
         $.get("users/"+id+"/edit", function (response){
             var value = JSON.parse(response);

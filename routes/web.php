@@ -22,7 +22,7 @@ Route::post('/profile', 'UserController@update')->name('profile.update');
 Route::group(['middleware' => ['admin']], function () {
   Route::get('/users', 'UserController@list')->name('admin.users');
   Route::get('/users/{id}/edit', 'UserController@edit');
-  Route::put('/users/change/password', 'UserController@changePassword');
+  Route::post('/users/change/password', 'UserController@changePassword');
   Route::get('/recruitments', 'SeleksiController@index')->name('admin.seleksi.index');
   Route::post('/recruitments/verification', 'SeleksiController@verifikasi')->name('admin.seleksi.verifikasi');
   Route::post('/recruitments/setLulus', 'SeleksiController@setLulus')->name('admin.seleksi.set');
