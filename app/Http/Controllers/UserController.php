@@ -67,6 +67,8 @@ class UserController extends Controller
         'jurusan' => $request->jurusan,
         'fakultas' => $request->fakultas,
         'angkatan' => $request->angkatan,
+        'phone' => $request->phone,
+        'id_line' => $request->id_line,
       ]);
 
       if ($request->hasFile('photo')) {

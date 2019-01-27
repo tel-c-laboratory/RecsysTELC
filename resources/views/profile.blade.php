@@ -79,6 +79,21 @@
                             </div>
 
                             <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>No Handphone</label>
+                                        <input type="number" class="form-control border-input" placeholder="08xxxxxxxxxx" name="phone" value="{{ $profile->phone }}" {{($profile->phone == null || $profile->phone == '') ? 'required':''}}>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>ID Line</label>
+                                        <input type="text" class="form-control border-input" placeholder="@telclab" name="id_line" value="{{ $profile->id_line }}" {{($profile->id_line == null || $profile->id_line == '') ? 'required':''}}>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Profile Photo</label>
