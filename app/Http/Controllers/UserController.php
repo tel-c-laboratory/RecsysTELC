@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Seleksi;
 use Auth;
@@ -28,14 +28,20 @@ class UserController extends Controller
     public function index()
     {
         $profile = User::find(Auth::user()->id);
+        $rtl = $this->getRecruitmentTimeline();
         if (Auth::user()->user_level != 'Peserta') {
           $count = User::where('user_level', 'Peserta')->count();
           $csg = Seleksi::where('peminatan', 'Study Group')->count();
           $crg = Seleksi::where('peminatan', 'Reserach Group')->count();
-          return view('dashboard', compact('profile', 'count', 'csg', 'crg'));
+          return view('dashboard', compact('profile', 'count', 'csg', 'crg', 'rtl'));
         } else {
-          return view('dashboard', compact('profile'));
+          return view('dashboard', compact('profile', 'rtl'));
         }
+    }
+
+    public function getRecruitmentTimeline(){
+      $config = DB::table('settings')->where('config', 'recruitment_timeline')->first();
+      return $config->value;
     }
 
     public function list()

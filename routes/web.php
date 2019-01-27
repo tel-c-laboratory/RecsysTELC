@@ -31,6 +31,8 @@ Route::group(['middleware' => ['admin']], function () {
   Route::delete('/users/delete', 'UserController@delete')->name('admin.users.delete');
   Route::get('/settings', 'SeleksiController@setting')->name('admin.setting');
   Route::post('/settings', 'SeleksiController@updateSettings')->name('admin.setting.update');
+  Route::post('/settings-timeline', 'SeleksiController@updateSettingsTimeline')->name('admin.setting.update.timeline');
+  Route::post('/settings-firstmeet', 'SeleksiController@updateSettingsFirstMeet')->name('admin.setting.update.firstmeet');
 });
 
 Route::group(['middleware' => 'peserta'], function () {

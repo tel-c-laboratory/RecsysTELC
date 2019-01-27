@@ -73,7 +73,7 @@
                     <li>Creative CV</li>
                     <li>Motivation Letter</li>
                     <li>Portofolio (Optional)</li>
-                    <li>1 Year Personal Plan (<a href="http://bit.ly/TELC-PersonalPlan" target="_blank">Download Template</a>)</li>
+                    <li>1 Year Personal Plan (<a href="{{ $upp }}" target="_blank">Download Template</a>)</li>
                   </ol>
                   <h5>Research Group</h5>
                   <ol>
@@ -81,8 +81,8 @@
                     <li>Creative CV</li>
                     <li>Motivation Letter</li>
                     <li>Portofolio (Optional)</li>
-                    <li>1 Year Personal Plan (<a href="http://bit.ly/TELC-PersonalPlan" target="_blank">Download Template</a>)</li>
-                    <li>Paper Review (<a href="http://bit.ly/TELC-PanduanResume" target="_blank">Click Here for Details</a>)</li>
+                    <li>1 Year Personal Plan (<a href="{{ $upp }}" target="_blank">Download Template</a>)</li>
+                    <li>Paper Review (<a href="{{ $upr }}" target="_blank">Click Here for Details</a>)</li>
                   </ol>
                 </div>
             </div>

@@ -103,11 +103,7 @@
                   </div>
                   <div class="content">
                     <h4>Recruitment Timeline</h4>
-                    <h5><p class="category"><b>3 - 10 November 2017</b></p>Upload Berkas Online</h5>
-                    <h5><p class="category"><b>13 November 2017</b></p>Penguman Seleksi Berkas</h5>
-                    <h5><p class="category"><b>13 - 14 November 2017</b></p>Isi Jadwal Wawancara</h5>
-                    <h5><p class="category"><b>15 - 19 November 2017</b></p>Seleksi Wawancara</h5>
-                    <h5><p class="category"><b>27 November 2017</b></p>Penguman Seleksi Wawancara</h5>
+                    {!! $rtl !!}
                   </div>
               </div>
           </div>
