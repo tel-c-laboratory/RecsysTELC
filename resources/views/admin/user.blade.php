@@ -94,7 +94,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <!-- <div class="modal-body"> -->
         <form id="changePassForm">
           {{ csrf_field() }}
           <input id="id" type="number" class="form-cotrol" name="id" hidden required>
@@ -106,7 +106,7 @@
                 </div>
             </div>
           </div>
-      </div>
+      <!-- </div> -->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         <button type="submit" class="btn btn-primary" name="submit">Submit</button>
@@ -120,12 +120,6 @@
 @section('content-js')
   <script type="text/javascript">
     $('#changePassModal').on('hide.bs.modal', function (event) {
-        $('#changePassForm').removeAttr("action");
-        $('#changePassForm').removeAttr("method");
-        $("input[name='_method']").remove();
-    });
-
-    $('#changeUserLevelModal').on('hide.bs.modal', function (event) {
         $('#changePassForm').removeAttr("action");
         $('#changePassForm').removeAttr("method");
         $("input[name='_method']").remove();
