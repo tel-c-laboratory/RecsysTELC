@@ -91,7 +91,7 @@
                   @else
                     <i class="fa fa-check text-success" aria-hidden="true" style="font-size:64px;margin-right:48px;"></i>
                     <p></p>
-                    <p>Selamat, Anda Lolos sebagai anggota TEL-C 4th Generation!</p>
+                    <p>Selamat, Anda Lolos sebagai anggota TEL-C 5th Generation!</p>
                     <a class="btn btn-info btn-fill btn-wd" href="#info">Informasi First Meet</a>
                   @endif
                 @endif

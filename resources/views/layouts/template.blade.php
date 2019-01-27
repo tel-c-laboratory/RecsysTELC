@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width" />
 
     <!-- Bootstrap core CSS     -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bootstrap.min2.css') }}" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
     <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet"/>
