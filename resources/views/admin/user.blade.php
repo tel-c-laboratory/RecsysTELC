@@ -59,7 +59,7 @@
                                             {{ csrf_field() }}
                                           </form>
                                         @endif
-                                        @if(Auth::user()->user_level == 'Super Admin')
+                                        @if(Auth::user()->user_level == 'Super Admin' and $view->user_level != 'Super Admin')
                                           <a class="btn btn-danger" title="{{ $view->id }}" href="#"
                                               onclick="event.preventDefault();
                                                        document.getElementById('delete-form-{{ $view->id }}').submit();">
