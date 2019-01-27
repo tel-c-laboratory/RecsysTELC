@@ -95,7 +95,7 @@ class SeleksiController extends Controller
             ]
           );
           $request->session()->flash('alert-class', 'alert-success');
-          $request->session()->flash('message', 'Attachment has been uploaded!');
+          $request->session()->flash('message', 'Your attachment has been uploaded!');
         }
       }
       return redirect()->route('seleksi.index');
