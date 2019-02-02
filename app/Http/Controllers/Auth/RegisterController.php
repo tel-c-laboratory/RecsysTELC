@@ -6,6 +6,7 @@ use App\User;
 use App\Seleksi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -41,6 +42,20 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        $stp = $this->getStatusPendaftaran();
+        if  ($stp == 'Aktif'){
+            return view('auth.register');
+        }
+        return view('auth.register-closed');
+    }
+    
+    public function getStatusPendaftaran(){
+        $config = DB::table('settings')->where('config', 'status_pendaftaran')->first();
+        return $config->value;
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -52,7 +67,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             // 'name' => 'required|string|max:255',
             // 'email' => 'required|string|email|max:255|unique:users',
-            'username' => 'required|string|max:255|unique:users',
+            'username' => 'required|string|alpha_dash|max:255|unique:users',
             'nim' => 'required|integer|digits:10|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);

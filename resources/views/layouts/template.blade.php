@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width" />
 
     <!-- Bootstrap core CSS     -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bootstrap.min2.css') }}" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
     <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet"/>
@@ -29,6 +29,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="{{ asset('css/themify-icons.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{{{ asset('img/faviconlab.png') }}}" sizes="32x32" />
 
 </head>
 <body>
@@ -62,24 +63,27 @@
             </a>
         </li>
 				@if(Auth::user()->user_level != 'Peserta')
-					<li class="{{ Request::is('users') ? "active" : ""}}">
-							<a href="{{ route('admin.users') }}">
-									<i class="fa fa-users" aria-hidden="true"></i>
-									<p>Users Management</p>
-							</a>
-					</li>
-					<li class="{{ Request::is('recruitments') ? "active" : ""}}">
+                    <li class="{{ Request::is('recruitments') ? "active" : ""}}">
 							<a href="{{ route('admin.seleksi.index') }}">
 									<i class="ti-file"></i>
 									<p>Recruitments</p>
 							</a>
 					</li>
+                    <li class="{{ Request::is('users') ? "active" : ""}}">
+							<a href="{{ route('admin.users') }}">
+									<i class="fa fa-users" aria-hidden="true"></i>
+									<p>Users Management</p>
+							</a>
+					</li>
+					
+                    @if(Auth::user()->user_level == 'Super Admin')
 					<li class="{{ Request::is('settings') ? "active" : ""}}">
 							<a href="{{ route('admin.setting') }}">
 									<i class="fa fa-cog" aria-hidden="true"></i>
 									<p>Settings</p>
 							</a>
 					</li>
+                    @endif
 				@else
 					<li class="{{ Request::is('recruitment') ? "active" : ""}}">
 							<a href="{{ route('seleksi.index') }}">
@@ -156,30 +160,21 @@
 
 </body>
   <!--   Core JS Files   -->
-  <script src="{{ asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('js/jquery-3.3.1.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
 
 	<!--   Core DataTables Files   -->
-  <script src="{{ asset('js/dataTables.bootstrap.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>  
+    <script src="{{ asset('js/dataTables.bootstrap.min.js') }}" type="text/javascript"></script>
+
+    @yield('content-js')
+
 	<script>
 		$(document).ready(function() {
 			$('#table').DataTable();
 			$(".icons span").remove();
 		});
 	</script>
-
-	<!--  Checkbox, Radio & Switch Plugins -->
-	<script src="{{ asset('js/bootstrap-checkbox-radio.js') }}"></script>
-
-	<!--  Charts Plugin -->
-	<script src="{{ asset('js/chartist.min.js') }}"></script>
-
-  <!--  Notifications Plugin    -->
-  <script src="{{ asset('js/bootstrap-notify.js') }}"></script>
-
-  <!--  Google Maps Plugin    -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
 	<!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 	<script src="{{ asset('js/paper-dashboard.js') }}"></script>

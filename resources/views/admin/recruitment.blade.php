@@ -15,7 +15,7 @@
                     <div class="header">
                         <h4 class="title">Recruitments</h4>
                     </div>
-                    <div class="content table-responsive table-full-width">
+                    <div class="content">
                         <form method="POST" action="{{ route('admin.seleksi.set') }}">
                         {{ csrf_field() }}
                         <table id="table" class="table table-striped">
@@ -27,13 +27,13 @@
                               <th>Peminatan</th>
                             	<th>Berkas</th>
                             	<th>Verifikasi</th>
-                              <th>Lolos Berkas</th>
-                              <th>Lolos Wawancara</th>
+                              <th>Lulus Tahap 1</th>
+                              <th>Lulus Tahap 2</th>
                             </thead>
                             <tbody>
                               @foreach($seleksi as $view)
                                   <tr>
-                                      <td><input type="checkbox" name="id[]" value="{{ $view->id }}" class="form-control"></td>
+                                      <td><input type="checkbox" name="id[]" value="{{ $view->id }}" class="form-control" style="width:25px; height:25px;"></td>
                                       <td>{{ $view->nim }}</td>
                                       <td>{{ $view->name }}</td>
                                       <td>{{ $view->angkatan }}</td>
@@ -68,14 +68,14 @@
                                         </td>
                                       @endif
                                       <td>
-                                        @if($view->seleksi->lolos_berkas != 'Ya')
+                                        @if($view->seleksi->lulus_berkas != 'Ya')
                                           <button type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
                                         @else
                                           <button type="button" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></button>
                                         @endif
                                       </td>
                                       <td>
-                                        @if($view->seleksi->lolos_wawancara != 'Ya')
+                                        @if($view->seleksi->lulus_wawancara != 'Ya')
                                           <button type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
                                         @else
                                           <button type="button" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></button>
@@ -100,7 +100,7 @@
                 <div class="form-group">
                   <select class="form-control" name="status" required>
                     <option value="">Choose...</option>
-                      @php ($status = ['Lolos Seleksi Berkas', 'Lolos Seleksi Wawancara'])
+                      @php ($status = ['Lulus Seleksi Tahap 1', 'Lulus Seleksi Tahap 2'])
                       @foreach($status as $value)
                           <option value="{{ $value }}" >{{ $value }}</option>
                       @endforeach

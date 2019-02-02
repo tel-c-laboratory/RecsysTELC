@@ -95,7 +95,8 @@
 }
 
 .register-card {
-  background-color: #FF8F5E;
+  /* background-color: #FF8F5E; */
+  background-color: rgba(255, 143, 94, 0.70);
   border-radius: 8px;
   color: #fff;
   max-width: 350px;
@@ -109,8 +110,9 @@
 }
 
 .register-card .title {
-  color: #B33C12;
+  color: #FFF;
   text-align: center;
+  font-weight: bold;
 }
 
 .register-card .btn {

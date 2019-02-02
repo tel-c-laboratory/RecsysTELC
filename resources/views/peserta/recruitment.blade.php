@@ -9,6 +9,13 @@
             <span>{{ Session::get('message') }}</span>
         </div>
       @endif
+
+      @if ($errors->has('berkas'))
+          <div class="alert alert-danger">
+              <a href="#" aria-hidden="true" data-dismiss="alert" class="close" aria-label="close">&times;</a>
+              <span>{{ $errors->first('berkas') }}</span>
+          </div>
+      @endif
         <div class="row">
           <div class="col-lg-6 col-md-6">
             <div class="card">
@@ -46,11 +53,6 @@
                   <div class="form-group">
                     <input type="file" name="berkas" class="form-control border-input" required>
                   </div>
-                  @if ($errors->has('berkas'))
-                      <span class="help-block">
-                          <strong>{{ $errors->first('berkas') }}</strong>
-                      </span>
-                  @endif
                   <div class="text-center">
                       <button type="submit" class="btn btn-info btn-fill btn-wd">Upload</button>
                   </div>
@@ -73,7 +75,7 @@
                     <li>Creative CV</li>
                     <li>Motivation Letter</li>
                     <li>Portofolio (Optional)</li>
-                    <li>1 Year Personal Plan (for Laboratory)</li>
+                    <li>1 Year Personal Plan (<a href="{{ $upp }}" target="_blank">Download Template</a>)</li>
                   </ol>
                   <h5>Research Group</h5>
                   <ol>
@@ -81,8 +83,8 @@
                     <li>Creative CV</li>
                     <li>Motivation Letter</li>
                     <li>Portofolio (Optional)</li>
-                    <li>1 Year Personal Plan (for Laboratory)</li>
-                    <li>Paper Review (Topic from Laboratory)</li>
+                    <li>1 Year Personal Plan (<a href="{{ $upp }}" target="_blank">Download Template</a>)</li>
+                    <li>Paper Review (<a href="{{ $upr }}" target="_blank">Click Here for Details</a>)</li>
                   </ol>
                 </div>
             </div>
@@ -97,6 +99,14 @@
                     <li><h5>File's must be compressed into 1 Archive (.rar)</h5></li>
                     <li><h5>The Archive file size is less than 5120KB</h5></li>
                   </ol>
+                </div>
+            </div>
+            <div class="card">
+                <div class="header">
+                    <h4 class="title"><b>Additional Information (SG Only)</b></h4>
+                </div>
+                <div class="content text-info text-center">
+                  <h2>Online Test will be held after your attachment is verified.</h2>
                 </div>
             </div>
           </div>

@@ -73,7 +73,22 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Angakatan</label>
-                                        <input type="number" class="form-control border-input" placeholder="2015" name="angkatan" value="{{ $profile->angkatan }}" min="2015" max="2017" {{($profile->angkatan == null || $profile->angkatan == '') ? 'required':''}}>
+                                        <input type="number" class="form-control border-input" placeholder="2015" name="angkatan" value="{{ $profile->angkatan }}" min="2015" max="2018" {{($profile->angkatan == null || $profile->angkatan == '') ? 'required':''}}>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>No Handphone</label>
+                                        <input type="number" class="form-control border-input" placeholder="08xxxxxxxxxx" name="phone" value="{{ $profile->phone }}" {{($profile->phone == null || $profile->phone == '') ? 'required':''}}>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>ID Line</label>
+                                        <input type="text" class="form-control border-input" placeholder="@telclab" name="id_line" value="{{ $profile->id_line }}" {{($profile->id_line == null || $profile->id_line == '') ? 'required':''}}>
                                     </div>
                                 </div>
                             </div>

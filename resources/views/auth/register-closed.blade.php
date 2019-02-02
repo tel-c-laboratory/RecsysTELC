@@ -63,45 +63,16 @@
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 ">
                             <div class="register-card">
-                                <h3 class="title">Register</h3>
-                                <form class="register-form" method="POST" action="{{ route('register') }}">
-																	{{ csrf_field() }}
-																		<label>NIM</label>
-																		<input type="number" class="form-control" name="nim" maxlength="10" placeholder="NIM" value="{{ old('nim') }}" required autofocus>
-																		@if ($errors->has('nim'))
-		                                    <span class="help-block">
-		                                        <strong>{{ $errors->first('nim') }}</strong>
-		                                    </span>
-		                                @endif
-
-																		<label>Username</label>
-																		<input type="text" class="form-control" name="username" placeholder="Username" value="{{ old('username') }}" required>
-																		@if ($errors->has('username'))
-		                                    <span class="help-block">
-		                                        <strong>{{ $errors->first('username') }}</strong>
-		                                    </span>
-		                                @endif
-
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" name="password" required>
-																		@if ($errors->has('password'))
-		                                    <span class="help-block">
-		                                        <strong>{{ $errors->first('password') }}</strong>
-		                                    </span>
-		                                @endif
-
-																		<label>Password Confirmation</label>
-																		<input type="password" class="form-control" name="password_confirmation" placeholder="Password Confirmation" required>
-																		@if ($errors->has('password_confirmation'))
-		                                    <span class="help-block">
-		                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-		                                    </span>
-		                                @endif
-
-                                    <button type="submit" class="btn btn-danger btn-block" style="color:white;font-weight:bold;">Register</button>
-                                </form>
+                                <h3 class="title" style="color:white;">Sorry, Registration is Closed</h3>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
                                 <div class="forgot">
-                                    <a href="{{ url('/') }}" class="btn btn-simple btn-danger" style="color:white;">Have an Account? Login Here!</a>
+                                    <a href="{{ route('login') }}" class="btn btn-simple btn-danger" style="color:white;font-weight:bold;">Have an Account? Login Here!</a>
                                 </div>
                             </div>
                         </div>

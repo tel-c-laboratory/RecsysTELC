@@ -18,8 +18,8 @@ class CreateSeleksiTable extends Migration
             $table->string('peminatan')->nullable();
             $table->string('berkas')->nullable();
             $table->string('status')->default('Belum Diverifikasi');
-            $table->string('lolos_berkas')->default('Tidak')->nullable();
-            $table->string('lolos_wawancara')->default('Tidak')->nullable();
+            $table->string('lulus_berkas')->default('Tidak')->nullable();
+            $table->string('lulus_wawancara')->default('Tidak')->nullable();
             $table->timestamps();
 
             $table->foreign('id')->references('id')->on('users')

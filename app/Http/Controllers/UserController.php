@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Seleksi;
 use Auth;
@@ -28,28 +28,31 @@ class UserController extends Controller
     public function index()
     {
         $profile = User::find(Auth::user()->id);
+        $rtl = $this->getRecruitmentTimeline();
         if (Auth::user()->user_level != 'Peserta') {
           $count = User::where('user_level', 'Peserta')->count();
           $csg = Seleksi::where('peminatan', 'Study Group')->count();
-          $crg = Seleksi::where('peminatan', 'Reserach Group')->count();
-          // dd($crg);
-          return view('admin.dashboard', compact('profile', 'count', 'csg', 'crg'));
+          $crg = Seleksi::where('peminatan', 'Research Group')->count();
+          return view('dashboard', compact('profile', 'count', 'csg', 'crg', 'rtl'));
         } else {
-          return view('peserta.dashboard', compact('profile'));
+          return view('dashboard', compact('profile', 'rtl'));
         }
+    }
+
+    public function getRecruitmentTimeline(){
+      $config = DB::table('settings')->where('config', 'recruitment_timeline')->first();
+      return $config->value;
     }
 
     public function list()
     {
       $user = User::all();
-      // dd($user);
       return view('admin.user', compact('user'));
     }
 
     public function show()
     {
       $profile = User::find(Auth::user()->id);
-      // dd($profile);
       return view('profile', compact('profile'));
     }
 
@@ -64,6 +67,8 @@ class UserController extends Controller
         'jurusan' => $request->jurusan,
         'fakultas' => $request->fakultas,
         'angkatan' => $request->angkatan,
+        'phone' => $request->phone,
+        'id_line' => $request->id_line,
       ]);
 
       if ($request->hasFile('photo')) {
@@ -105,7 +110,6 @@ class UserController extends Controller
 
     public function cek_verifikasi(Request $request){
       $seleksi = Seleksi::find($request->id);
-      // dd($seleksi);
       if ($seleksi != null) {
         if ($seleksi->status == 'Verified') {
           return false;
@@ -117,7 +121,6 @@ class UserController extends Controller
 
     public function setAdmin(Request $request){
       $user = User::find($request->id);
-      // dd($request);
       if ($this->cek_verifikasi($request)) {
         $level = 'Admin';
         $user->user_level = $level;
